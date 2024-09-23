@@ -20,7 +20,7 @@ public class NewBehaviourScript : MonoBehaviour
         float dirIndicadaX = Input.GetAxisRaw("Horizontal");
         float dirIndicadaY = Input.GetAxisRaw("Vertical");
         //Debug.Log("X: " + dirIndicadaX + " - Y: " + dirIndicadaY);
-        Vector2 dirIndicada = new Vector2(dirIndicadaX, dirIndicadaY);
+        Vector2 dirIndicada = new Vector2(dirIndicadaX, dirIndicadaY).normalized; //Todo se mueva a la misma velocidad
 
         Vector2 nuevaPos = transform.position; //Direccion actual de la nave
         nuevaPos = nuevaPos + dirIndicada * _vel * Time.deltaTime;
