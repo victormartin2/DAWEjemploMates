@@ -14,6 +14,14 @@ public class NewBehaviourScript : MonoBehaviour
         _vel = 6;
         minPantalla = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
         maxPantalla = Camera.main.ViewportToWorldPoint(new Vector2(1, 1));
+
+        float mitadMedidaImgX = GetComponent<SpriteRenderer>().sprite.bounds.size.x * transform.localScale.x / 2;
+        float mitadMedidaImgY = GetComponent<SpriteRenderer>().sprite.bounds.size.y * transform.localScale.y / 2;
+
+        minPantalla.x = minPantalla.x + mitadMedidaImgX;
+        maxPantalla.x = maxPantalla.x - mitadMedidaImgX;
+        minPantalla.y += mitadMedidaImgY;
+        maxPantalla.y -= mitadMedidaImgY;
     }
 
     // Update is called once per frame
