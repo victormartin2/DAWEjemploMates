@@ -6,7 +6,8 @@ using UnityEngine;
 public class NewBehaviourScript : MonoBehaviour
 {
     private float _vel;
-    Vector2 minPantalla, maxPantalla;
+    private Vector2 minPantalla, maxPantalla;
+    [SerializeField]private GameObject prefabProyectil;
     
     // Start is called before the first frame update
     void Start()
@@ -27,6 +28,11 @@ public class NewBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        moverNave();
+        dispararProyectil();
+    }
+    private void moverNave()
+    {
         float dirIndicadaX = Input.GetAxisRaw("Horizontal");
         float dirIndicadaY = Input.GetAxisRaw("Vertical");
         //Debug.Log("X: " + dirIndicadaX + " - Y: " + dirIndicadaY);
@@ -40,5 +46,13 @@ public class NewBehaviourScript : MonoBehaviour
         nuevaPos.y = Mathf.Clamp(nuevaPos.y, minPantalla.y, maxPantalla.y);
 
         transform.position = nuevaPos;
+    }
+    private void dispararProyectil()
+    {
+        if (Input.GetKeyDown("space"))
+        {
+            GameObject proyectil = Instantiate(prefabProyectil);
+            proyectil.transform.position = transform.position;
+        }
     }
 }
