@@ -8,6 +8,7 @@ public class numero : MonoBehaviour
     private Vector2 minPantalla;
     [SerializeField] private Sprite[] arraySpritesNum = new Sprite[10];
     private int valorNum;
+    [SerializeField] private GameObject prefabExplosion;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +31,16 @@ public class numero : MonoBehaviour
         if (transform.position.y < minPantalla.y)
         {
             Destroy(gameObject);
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D objetoTocado)
+    {
+        if (objetoTocado.tag == "jugador" || objetoTocado.tag == "proyectilJugador")
+        {
+            GameObject explosion = Instantiate(prefabExplosion);
+            explosion.transform.position = transform.position;
+            Destroy(gameObject);
+
         }
     }
 }

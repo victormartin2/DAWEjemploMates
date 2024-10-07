@@ -8,7 +8,8 @@ public class NewBehaviourScript : MonoBehaviour
     private float _vel;
     private Vector2 minPantalla, maxPantalla;
     [SerializeField]private GameObject prefabProyectil;
-    
+    [SerializeField] private GameObject prefabExplosion;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,6 +54,17 @@ public class NewBehaviourScript : MonoBehaviour
         {
             GameObject proyectil = Instantiate(prefabProyectil);
             proyectil.transform.position = transform.position;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D objetoTocado)
+    {
+        if(objetoTocado.tag == "numero")
+        {
+            GameObject explosion = Instantiate(prefabExplosion);
+            explosion.transform.position = transform.position;
+            Destroy(gameObject);
+            
         }
     }
 }
