@@ -9,6 +9,8 @@ public class NewBehaviourScript : MonoBehaviour
     private Vector2 minPantalla, maxPantalla;
     [SerializeField]private GameObject prefabProyectil;
     [SerializeField] private GameObject prefabExplosion;
+    [SerializeField] private TMPro.TextMeshProUGUI componenteTextoVidas;
+    private int vidasNave;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +26,8 @@ public class NewBehaviourScript : MonoBehaviour
         maxPantalla.x = maxPantalla.x - mitadMedidaImgX;
         minPantalla.y += mitadMedidaImgY;
         maxPantalla.y -= mitadMedidaImgY;
+
+        vidasNave = 3;
     }
 
     // Update is called once per frame
@@ -61,10 +65,14 @@ public class NewBehaviourScript : MonoBehaviour
     {
         if(objetoTocado.tag == "numero")
         {
-            GameObject explosion = Instantiate(prefabExplosion);
-            explosion.transform.position = transform.position;
-            Destroy(gameObject);
-            
+            vidasNave--;
+            if (vidasNave <= 0)
+            {
+                GameObject explosion = Instantiate(prefabExplosion);
+                explosion.transform.position = transform.position;
+
+                Destroy(gameObject);
+            }
         }
     }
 }
