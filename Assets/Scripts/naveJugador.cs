@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NewBehaviourScript : MonoBehaviour
 {
@@ -66,11 +67,14 @@ public class NewBehaviourScript : MonoBehaviour
         if(objetoTocado.tag == "numero")
         {
             vidasNave--;
+            componenteTextoVidas.text = "Vidas: " + vidasNave.ToString();
+
             if (vidasNave <= 0)
             {
                 GameObject explosion = Instantiate(prefabExplosion);
                 explosion.transform.position = transform.position;
 
+                SceneManager.LoadScene("PantallaResultados");  
                 Destroy(gameObject);
             }
         }

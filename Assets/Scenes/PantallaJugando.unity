@@ -223,6 +223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabProyectil: {fileID: 1049697122166997373, guid: e41350f04a2581e45818ae708395101f, type: 3}
   prefabExplosion: {fileID: 8966409268819570912, guid: 0c2ec0d3571aec847832c79daed621d0, type: 3}
+  componenteTextoVidas: {fileID: 887009955}
 --- !u!61 &263315016
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -444,7 +445,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Puntos: 0'
+  m_text: 'Vidas: 3'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
