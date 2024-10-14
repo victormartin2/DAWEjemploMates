@@ -4,6 +4,36 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/*
+ * 
+ * Que hemos visto:
+ * - Crear objectos en la escena.
+ * - Crear EmptyObjects (para hacer generador de numeros).
+ * - Crear Prefabs (crear objetos cuando el juego esta en ejecucion).
+ *  - Para crearlos: arrastrar el objeto que ya hay creado y lo arrastramos en la carpeta Prefabs
+ *  - Para crear un Prefab en la escena en ejecución: metodo Instanciate(variablePrefab)
+ *      - VariablePrefab: variable de tipo GameObject.
+ *      
+ * - Encontrar posicion objeto actual: (transform.position).
+ * - Encontrar margenes pantalla: (Camera.main.ViewportToWorldPoint()).
+ * - [Serialize Field]: para hacer que una variable privada de la clase se muestre en el editor de Unity.
+ * - Utilizar una imagen/sprite como si fuese mas de una (conteniendo subimagenes).
+ *  - Seleccinamos el sprite.
+ *  - En la opcion Sprite Mode cambiamos de Single a Multiple, y le damos al botón Apply.
+ *  - Utilizamos las opciones del botón Sprite Editor.
+ *  
+ * - Destruir objeto acutal: Destroy(GameObject).
+ * - Llamar metodo al cabo de x segundos: Invoke("NombreMetodo", xf).
+ * - Llamar metodo al cabo de x segundos y cada y segundos: InvokeRepeating("NombreMetodo", xf, yf).
+ * - Como parar un metodo InvokeRepeating: CancelInvoke("NombreMetodo").
+ * - Detectar objeto toca a otro:
+ *  - Añadir a los objetos que queramos que se toquen, los componentes: BoxCollider2D y Rigidbody2D.
+ *  - En el BoxCollider2D: activar checkbox IsTrigger.
+ *  - En el Rigibody2D: GravityScale ponerlo a 0.
+ * 
+ */
+
+
 public class NewBehaviourScript : MonoBehaviour
 {
     private float _vel;

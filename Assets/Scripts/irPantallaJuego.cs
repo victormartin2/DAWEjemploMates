@@ -7,6 +7,7 @@ public class irPantallaJuego : MonoBehaviour
 {
     public void irPantallaJugando()
     {
+        datosGlobales.reiniciarPuntos();
         SceneManager.LoadScene("PantallaJugando");
     }
 }
